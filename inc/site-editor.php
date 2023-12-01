@@ -36,7 +36,7 @@ function action__after_setup_theme(): void {
 }
 
 /**
- * Remove the "Editor" menu item and all submenu items.
+ * Remove the "Editor" menu item.
  */
 function action__admin_menu(): void {
 	remove_submenu_page( 'themes.php', 'site-editor.php' );
