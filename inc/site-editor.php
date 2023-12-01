@@ -21,6 +21,11 @@ function action__after_setup_theme(): void {
 		// Remove the "Editor" menu item.
 		add_action( 'admin_menu', __NAMESPACE__ . '\action__admin_menu' );
 
+		// Caper is being installed via Create WordPress Project. If it's not available, bail.
+		if ( ! class_exists( 'Alley\WP\Caper' ) ) {
+			return;
+		}
+
 		// Prevent direct access to the Site Editor.
 		if ( 'site-editor.php' === $pagenow && ! wp_doing_ajax() ) {
 			Caper::deny_to_all()->primitives( 'edit_theme_options' );
