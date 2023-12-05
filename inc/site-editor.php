@@ -29,7 +29,6 @@ function action__after_setup_theme(): void {
 		// Prevent direct access to the Site Editor.
 		if ( 'site-editor.php' === $pagenow && ! wp_doing_ajax() ) {
 			Caper::deny_to_all()->primitives( 'edit_theme_options' );
-			Caper::grant_to( 'administrator' )->primitives( 'create_wordpress_theme_edit_menus' );
 		}
 
 	}
