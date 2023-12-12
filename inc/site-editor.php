@@ -57,8 +57,8 @@ function action__admin_menu(): void {
 
 	// Rebuild the Appearance menu.
 	add_menu_page(
-		__( 'Appearance', 'wpr-core' ),
-		__( 'Appearance', 'wpr-core' ),
+		__( 'Appearance', 'create-wordpress-theme' ),
+		__( 'Appearance', 'create-wordpress-theme' ),
 		'cwt_edit_menus',
 		'themes.php',
 		// @phpstan-ignore-next-line because the issue is with the docblock in WP core; we are passing the correct default value.
@@ -69,8 +69,8 @@ function action__admin_menu(): void {
 
 	add_submenu_page(
 		'themes.php',
-		__( 'Customize', 'wpr-core' ),
-		__( 'Customize', 'wpr-core' ),
+		__( 'Customize', 'create-wordpress-theme' ),
+		__( 'Customize', 'create-wordpress-theme' ),
 		'cwt_edit_menus',
 		esc_url( $customize_url ),
 		'',
@@ -79,8 +79,8 @@ function action__admin_menu(): void {
 
 	add_submenu_page(
 		'themes.php',
-		__( 'Menus', 'wpr-core' ),
-		__( 'Menus', 'wpr-core' ),
+		__( 'Menus', 'create-wordpress-theme' ),
+		__( 'Menus', 'create-wordpress-theme' ),
 		'cwt_edit_menus',
 		'nav-menus.php',
 		'',
