@@ -47,7 +47,8 @@ function action__after_setup_theme(): void {
  */
 function action__admin_menu(): void {
 	// Build the customize.php URL.
-	$customize_url = add_query_arg( 'return', urlencode( remove_query_arg( wp_removable_query_args(), wp_unslash( $_SERVER['REQUEST_URI'] ) ) ), 'customize.php' );
+	$current_url   = esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) );
+	$customize_url = add_query_arg( 'return', urlencode( remove_query_arg( wp_removable_query_args(), $current_url ) ), 'customize.php' );
 
 	// Remove the "Appearance" menu items.
 	remove_menu_page( 'themes.php' );
