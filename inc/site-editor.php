@@ -28,12 +28,12 @@ function action__after_setup_theme(): void {
 		Caper::grant_to( 'administrator' )->primitives( 'create_wordpress_theme_edit_menus' );
 
 		// Conditionally re-grant access to the customizer.
-		if ( ( 'customize.php' === $pagenow || 'index.php' === $pagenow ) && ! wp_doing_ajax() ) {
+		if ( ( 'customize.php' === $pagenow || 'index.php' === $pagenow ) || wp_doing_ajax() ) {
 			Caper::grant_to( 'administrator' )->primitives( 'edit_theme_options' )->at_priority( 100 );
 		}
 
 		// Conditionally re-grant access to menus page.
-		if ( 'nav-menus.php' === $pagenow && ! wp_doing_ajax() ) {
+		if ( 'nav-menus.php' === $pagenow || wp_doing_ajax() ) {
 			Caper::grant_to( 'administrator' )->primitives( 'edit_theme_options' )->at_priority( 100 );
 		}
 
