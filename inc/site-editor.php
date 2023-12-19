@@ -25,7 +25,7 @@ function action__after_setup_theme(): void {
 
 		Caper::deny_to_all()->primitives( 'edit_theme_options' );
 		// Create a custom capability for menu items that should be displayed.
-		Caper::grant_to( 'administrator' )->primitives( 'cwt_edit_menus' );
+		Caper::grant_to( 'administrator' )->primitives( 'create_wordpress_theme_edit_menus' );
 
 		// Conditionally re-grant access to the customizer.
 		if ( ( 'customize.php' === $pagenow || 'index.php' === $pagenow ) && ! wp_doing_ajax() ) {
@@ -60,7 +60,7 @@ function action__admin_menu(): void {
 	add_menu_page(
 		__( 'Appearance', 'create-wordpress-theme' ),
 		__( 'Appearance', 'create-wordpress-theme' ),
-		'cwt_edit_menus',
+		'create_wordpress_theme_edit_menus',
 		'themes.php',
 		// @phpstan-ignore-next-line because the issue is with the docblock in WP core; we are passing the correct default value.
 		'',
@@ -72,7 +72,7 @@ function action__admin_menu(): void {
 		'themes.php',
 		__( 'Customize', 'create-wordpress-theme' ),
 		__( 'Customize', 'create-wordpress-theme' ),
-		'cwt_edit_menus',
+		'create_wordpress_theme_edit_menus',
 		esc_url( $customize_url ),
 		'',
 		61
@@ -82,7 +82,7 @@ function action__admin_menu(): void {
 		'themes.php',
 		__( 'Menus', 'create-wordpress-theme' ),
 		__( 'Menus', 'create-wordpress-theme' ),
-		'cwt_edit_menus',
+		'create_wordpress_theme_edit_menus',
 		'nav-menus.php',
 		'',
 		62
