@@ -34,7 +34,7 @@ function action__after_setup_theme(): void {
 }
 
 /**
- * Remove and rebuild the appearance menu.
+ * Remove the Editor menu item from the appearance menu.
  */
 function action__admin_menu(): void {
 	remove_submenu_page( 'themes.php', 'site-editor.php' );
