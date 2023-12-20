@@ -1,6 +1,6 @@
 <?php
 /**
- * Manage Gutenberg-related logic.
+ * Manage block-related logic.
  *
  * @package Create_WordPress_Theme
  */
