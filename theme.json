@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "settings": {
+    "layout": {
+      "contentSize": "48rem",
+      "wideSize": "80rem"
+    }
+  },
+  "styles": {},
+  "customTemplates": {},
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "Header",
+      "area": "header"
+    }
+  ]
+}
