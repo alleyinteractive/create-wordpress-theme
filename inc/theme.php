@@ -7,13 +7,13 @@
 
 namespace Create_WordPress_Theme;
 
-add_action( 'after_setup_theme', __NAMESPACE__ . '\action__after_theme_setup' );
+add_action( 'after_setup_theme', __NAMESPACE__ . '\action__after_setup_theme' );
 add_action( 'admin_menu', __NAMESPACE__ . '\action__admin_menu' );
 
 /**
  * Setup theme defaults and registers support for various WordPress features.
  */
-function action__after_theme_setup(): void {
+function action__after_setup_theme(): void {
 	/**
 	 * Add menu support.
 	 */
