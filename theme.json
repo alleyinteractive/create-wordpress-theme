@@ -1,12 +1,27 @@
 {
   "version": 2,
   "settings": {
+    "useRootPaddingAwareAlignments": true,
     "layout": {
       "contentSize": "48rem",
       "wideSize": "80rem"
+    },
+    "custom": {
+      "spacing": {
+        "siteEdge": "clamp(1rem, 5vw, 2rem)"
+      }
     }
   },
-  "styles": {},
+  "styles": {
+    "spacing": {
+      "padding": {
+        "top": "0",
+        "right": "var(--wp--custom--spacing--site-edge, 5vw)",
+        "bottom": "0",
+        "left": "var(--wp--custom--spacing--site-edge, 5vw)"
+      }
+    }
+  },
   "customTemplates": {},
   "templateParts": [
     {
