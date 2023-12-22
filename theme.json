@@ -1,28 +1,103 @@
 {
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 2,
   "settings": {
-    "useRootPaddingAwareAlignments": true,
+    "color": {
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "duotone": [],
+      "gradients": [],
+      "palette" : [
+        {
+          "slug": "primary",
+          "color": "#e55842",
+          "name": "Primary"
+        },
+        {
+          "slug": "black",
+          "color": "#000000",
+          "name": "Black"
+        },
+        {
+          "slug": "white",
+          "color": "#ffffff",
+          "name": "White"
+        }
+      ],
+      "text": false,
+      "background": false,
+      "defaultGradients": false,
+      "defaultPalette": false
+    },
+    "custom": {
+      "spacing": {
+        "blockGap": "1.5rem",
+        "siteEdge": "clamp(1rem, 5vw, 2rem)"
+      }
+    },
     "layout": {
       "contentSize": "48rem",
       "wideSize": "80rem"
     },
-    "custom": {
-      "spacing": {
-        "siteEdge": "clamp(1rem, 5vw, 2rem)"
-      }
-    }
+    "spacing": {
+      "blockGap": false
+    },
+    "typography": {
+      "customFontSize": false,
+      "dropCap": false,
+      "fontStyle": false,
+      "fontWeight": false,
+      "letterSpacing": false,
+      "textDecoration": false,
+      "textTransform": false,
+      "fontSizes": [],
+      "fontFamilies": [
+        {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif",
+          "slug": "system-sans-serif",
+          "name": "System Sans-serif"
+        }
+      ]
+    },
+    "useRootPaddingAwareAlignments": true
   },
   "styles": {
+    "color": {
+      "text": "var(--wp--preset--color--black)"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--primary)"
+        },
+        "typography": {
+          "textDecoration": "underline"
+        },
+        ":hover": {
+          "typography": {
+            "textDecoration": "none"
+          }
+        }
+      }
+    },
     "spacing": {
+      "blockGap": "var(--wp--custom--spacing--block-gap, 1.5rem)",
       "padding": {
         "top": "0",
         "right": "var(--wp--custom--spacing--site-edge, 5vw)",
         "bottom": "0",
         "left": "var(--wp--custom--spacing--site-edge, 5vw)"
       }
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--system-sans-serif)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "1.5"
     }
   },
-  "customTemplates": {},
+  "customTemplates": [],
   "templateParts": [
     {
       "name": "header",
