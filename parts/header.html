@@ -1,51 +1,51 @@
 <!--
 wp:group {
-    "className": "site-header",
-    "layout": {
-        "type": "constrained"
-    },
-    "tagName": "header"
+	"tagName": "header",
+	"className": "site-header",
+	"layout": {
+		"type": "constrained"
+	}
 }
 -->
 <header id="masthead" class="wp-block-group site-header">
-    <!--
-    wp:group {
-        "align": "wide",
-        "className": "site-header__inner",
-        "layout": {
-            "type": "flex",
-            "flexWrap": "nowrap"
-        }
-    }
-    -->
-    <div class="wp-block-group alignwide site-header__inner">
-        <!-- wp:site-logo /-->
+	<!--
+	wp:group {
+		"align": "wide",
+		"className": "site-header__inner",
+		"layout": {
+			"type": "flex",
+			"flexWrap": "nowrap"
+		}
+	}
+	-->
+	<div class="wp-block-group alignwide site-header__inner">
+		<!-- wp:site-logo /-->
 
-        <!-- wp:create-wordpress-plugin/theme-navigation {"menuLocation": "header"} /-->
+		<!-- wp:create-wordpress-plugin/theme-navigation {"menuLocation": "header"} /-->
 
-        <!--
-        wp:buttons {
-            "layout": {
-                "type": "flex",
-                "justifyContent": "right"
-            },
-            "style": {
-                "layout": {
-                    "selfStretch": "fill",
-                    "flexSize": null
-                }
-            }
-        }
-        -->
-        <div class="wp-block-buttons">
-            <!-- wp:button -->
-            <div class="wp-block-button">
-                <a class="wp-block-button__link wp-element-button" href="?s=">Search</a>
-            </div>
-            <!-- /wp:button -->
-        </div>
-        <!-- /wp:buttons -->
-    </div>
-    <!-- /wp:group -->
+		<!--
+		wp:buttons {
+			"layout": {
+				"type": "flex",
+				"justifyContent": "right"
+			},
+			"style": {
+				"layout": {
+					"selfStretch": "fill",
+					"flexSize": null
+				}
+			}
+		}
+		-->
+		<div class="wp-block-buttons">
+			<!-- wp:button -->
+			<div class="wp-block-button">
+				<a class="wp-block-button__link wp-element-button" href="?s=">Search</a>
+			</div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+	</div>
+	<!-- /wp:group -->
 </header>
 <!-- /wp:group -->
