@@ -1,0 +1,119 @@
+<!--
+wp:template-part {
+	"slug": "header",
+	"skipWrapper": true
+}
+/-->
+
+<!--
+wp:group {
+	"tagName": "main",
+	"className": "site-main",
+	"layout": {
+		"type": "default"
+	}
+}
+-->
+<main id="main" class="wp-block-group site-main">
+	<!--
+	wp:group {
+		"tagName": "article",
+		"layout": {
+			"type": "default"
+		}
+	}
+	-->
+	<article class="wp-block-group">
+		<!--
+		wp:group {
+			"tagName": "header",
+			"className": "entry-header",
+			"layout": {
+				"type": "constrained"
+			}
+		}
+		-->
+		<header class="wp-block-group entry-header">
+			<!-- wp:post-featured-image {"align":"wide"} /-->
+
+			<!-- 
+				@todo Replace with Primary Category.
+				@see https://github.com/alleyinteractive/create-wordpress-project/issues/53
+			-->
+			<!-- wp:post-terms {"term":"category"} /-->
+
+			<!--
+			wp:post-title {
+				"level": 1,
+				"className": "entry-title"
+			}
+			/-->
+
+			<!-- 
+				@todo Replace with Subheadline.
+				@see https://github.com/alleyinteractive/create-wordpress-project/issues/52
+			-->
+			<!-- wp:post-excerpt /-->
+
+			<!--
+			wp:group {
+				"layout": {
+					"type": "flex",
+					"flexWrap": "wrap",
+					"justifyContent": "left"
+				}
+			}
+			-->
+			<div class="wp-block-group">
+				
+				<!-- 
+					@todo Replace with Byline.
+					@see https://github.com/alleyinteractive/byline-manager/issues/74
+				-->
+				<!-- wp:post-author-name {"isLink":true} /-->
+
+				<!-- wp:post-date /-->
+
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:post-terms {"term":"post_tag"} /-->
+		</header>
+		<!-- /wp:group -->
+
+		<!--
+		wp:post-content {
+			"className": "entry-content",
+			"layout": {
+				"type": "constrained"
+			}
+		}
+		/-->
+
+		<!--
+		wp:group {
+			"tagName": "aside",
+			"className": "entry-aside",
+			"layout": {
+				"type": "constrained"
+			}
+		}
+		-->
+		<aside class="wp-block-group entry-aside">
+			<!-- 
+				@todo Related Content.
+				@see https://github.com/alleyinteractive/create-wordpress-project/issues/54
+			-->
+		</aside>
+		<!-- /wp:group -->
+	</article>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!--
+wp:template-part {
+	"slug": "footer",
+	"skipWrapper": true
+}
+/-->
