@@ -14,10 +14,16 @@ add_action( 'admin_menu', __NAMESPACE__ . '\action__admin_menu' );
  * Setup theme defaults and registers support for various WordPress features.
  */
 function action__after_setup_theme(): void {
-	/**
-	 * Add menu support.
-	 */
+	// Add menu support.
 	add_theme_support( 'menus' );
+
+	// Register navigation menu locations.
+	register_nav_menus(
+		[
+			'header' => __( 'Header', 'create-wordpress-theme' ),
+			'footer' => __( 'Footer', 'create-wordpress-theme' ),
+		]
+	);
 }
 
 /**
