@@ -1,0 +1,86 @@
+<!--
+wp:template-part {
+	"slug": "header",
+	"skipWrapper": true
+}
+/-->
+
+<!--
+wp:group {
+	"tagName": "main",
+	"className": "site-main",
+	"layout": {
+		"type": "default"
+	},
+	"metadata":{
+		"name":"Site Main"
+	}
+}
+-->
+<main id="main" class="wp-block-group site-main">
+	<!--
+	wp:group {
+		"tagName": "article",
+		"layout": {
+			"type": "default"
+		},
+		"metadata":{
+			"name":"Article"
+		}
+	}
+	-->
+	<article class="wp-block-group">
+		<!--
+		wp:group {
+			"tagName": "header",
+			"className": "entry-header",
+			"layout": {
+				"type": "constrained"
+			},
+			"metadata":{
+				"name":"Entry Header"
+			}
+		}
+		-->
+		<header class="wp-block-group entry-header">
+			<!--
+			wp:heading {
+				"level":1,
+				"className": "entry-title",
+			}
+			-->
+			<h1 class="wp-block-heading entry-title">Not Found</h1>
+			<!-- /wp:heading -->
+		</header>
+		<!-- /wp:group -->
+
+		<!--
+		wp:group {
+			"className":"entry-content",
+			"layout":{
+				"type":"constrained"
+			},
+			"metadata":{
+				"name":"Entry Content"
+			}
+		}
+		-->
+		<div class="wp-block-group entry-content">
+			<!-- wp:paragraph -->
+			<p>We're sorry, page you're looking for could not be found. Please
+			use your browser's 'Back' button or use one of the navigation links
+			on this page.</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+	</article>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!--
+wp:template-part {
+	"slug": "footer",
+	"skipWrapper": true
+}
+/-->
