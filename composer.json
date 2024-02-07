@@ -1,0 +1,19 @@
+{
+  "name": "alleyinteractive/create-wordpress-theme",
+  "description": "A skeleton WordPress theme",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "alleyinteractive",
+    "create-wordpress-theme"
+  ],
+  "authors": [
+    {
+      "name": "Alley",
+      "email": "info@alley.com"
+    }
+  ],
+  "homepage": "https://github.com/alleyinteractive/create-wordpress-theme",
+  "require": {
+    "php": "^8.2"
+  }
+}
