@@ -45,11 +45,7 @@ wp:group {
 		<header class="wp-block-group entry-header">
 			<!-- wp:post-featured-image {"align":"wide"} /-->
 
-			<!--
-				@todo Replace with Primary Category.
-				@see https://github.com/alleyinteractive/create-wordpress-project/issues/53
-			-->
-			<!-- wp:post-terms {"term":"category"} /-->
+			<!-- wp:create-wordpress-plugin/primary-term /-->
 
 			<!--
 			wp:post-title {
@@ -58,11 +54,7 @@ wp:group {
 			}
 			/-->
 
-			<!--
-				@todo Replace with Subheadline.
-				@see https://github.com/alleyinteractive/create-wordpress-project/issues/52
-			-->
-			<!-- wp:post-excerpt /-->
+			<!-- wp:create-wordpress-plugin/theme-post-subheadline /-->
 
 			<!--
 			wp:group {
@@ -78,10 +70,6 @@ wp:group {
 			-->
 			<div class="wp-block-group">
 
-				<!--
-					@todo Replace with Byline.
-					@see https://github.com/alleyinteractive/byline-manager/issues/74
-				-->
 				<!-- wp:post-author-name {"isLink":true} /-->
 
 				<!-- wp:post-date /-->
@@ -115,10 +103,23 @@ wp:group {
 		}
 		-->
 		<aside class="wp-block-group entry-aside">
-			<!--
-				@todo Related Content.
-				@see https://github.com/alleyinteractive/create-wordpress-project/issues/54
-			-->
+			<!-- wp:heading -->
+			<h2 class="wp-block-heading">Related Content</h2>
+			<!-- /wp:heading -->
+			
+			<!-- wp:wp-curate/query {"numberOfPosts":3,"posts":[null,null,null]} -->
+			<div class="wp-block-wp-curate-query">
+				<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+				<!-- wp:wp-curate/post -->
+				<div class="wp-block-wp-curate-post">
+					<!-- wp:post-featured-image {"aspectRatio":"16/9"} /-->
+					<!-- wp:post-title {"isLink":true} /-->
+					<!-- wp:post-date /-->
+				</div>
+				<!-- /wp:wp-curate/post -->
+				<!-- /wp:post-template -->
+			</div>
+			<!-- /wp:wp-curate/query -->
 		</aside>
 		<!-- /wp:group -->
 	</article>
