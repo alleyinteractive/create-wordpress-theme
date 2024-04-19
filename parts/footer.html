@@ -1,13 +1,12 @@
 <!--
 wp:group {
-	"tagName": "footer",
 	"className": "site-footer",
 	"layout": {
 		"type": "constrained"
 	}
 }
 -->
-<footer id="colophon" class="wp-block-group site-footer">
+<div id="colophon" class="wp-block-group site-footer">
 	<!--
 	wp:group {
 		"align": "wide",
@@ -24,7 +23,7 @@ wp:group {
 
 		<!-- wp:create-wordpress-plugin/theme-navigation {"menuLocation": "footer"} /-->
 
-		<!-- wp:social-links -->
+		<!-- wp:social-links {"iconColor":"white","iconBackgroundColor":"primary","className":"has-icon-color has-icon-background-color is-style-default"} -->
 		<ul class="wp-block-social-links has-icon-color has-icon-background-color is-style-default">
 			<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
@@ -37,5 +36,5 @@ wp:group {
 		<!-- /wp:social-links -->
 	</div>
 	<!-- /wp:group -->
-</footer>
+</div>
 <!-- /wp:group -->
