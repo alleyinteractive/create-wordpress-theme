@@ -18,7 +18,7 @@ function action__admin_menu(): void {
 	if ( ! in_array( wp_get_environment_type(), [ 'local', 'development' ], true ) ) {
 		remove_submenu_page( 'themes.php', 'site-editor.php' );
 
-		if ( $pagenow === 'site-editor.php' ) {
+		if ( 'site-editor.php' === $pagenow ) {
 			wp_safe_redirect( admin_url() );
 			exit;
 		}
