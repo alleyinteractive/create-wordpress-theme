@@ -13,6 +13,8 @@ add_filter( 'render_block_core/post-featured-image', __NAMESPACE__ . '\render_co
 /**
  * Filters the content of a 'core/template-part' block.
  *
+ * @phpstan-param array{attrs: array<string, mixed>} $block
+ *
  * @param string $block_content The block content.
  * @param array  $block         The full block, including name and attributes.
  * @return string
@@ -56,6 +58,8 @@ function remove_core_template_part_wrapper( $block_content, $block ) {
 /**
  * Filters the content of the 'core/post-featured-image' block.
  *
+ * @phpstan-param array{attrs: array<string, mixed>} $block
+ *
  * @param string $block_content The block content.
  * @param array  $block         The full block, including name and attributes.
  * @return string
@@ -66,7 +70,7 @@ function render_core_post_featured_image( $block_content, $block ) {
 	/*
 	 * Allow passing "ariaHidden": true with post featured image block to remove
 	 * the tab stop and hide the image from screen readers.
-	 * 
+	 *
 	 * This is useful when linked within archive listings or card components,
 	 * since the post title serves as the post link.
 	 */
