@@ -32,9 +32,13 @@ function action__after_setup_theme(): void {
  * @return void
  */
 function action__admin_menu(): void {
+	if ( empty( $_SERVER['REQUEST_URI'] ) ) {
+		return;
+	}
+
 	// Build the customize.php URL.
 	$current_url   = esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) );
-	$customize_url = add_query_arg( 'return', urlencode( remove_query_arg( wp_removable_query_args(), $current_url ) ), 'customize.php' );
+	$customize_url = add_query_arg( 'return', rawurlencode( remove_query_arg( wp_removable_query_args(), $current_url ) ), 'customize.php' );
 
 	add_submenu_page(
 		'themes.php',
