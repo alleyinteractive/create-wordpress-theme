@@ -77,11 +77,11 @@ function render_core_post_featured_image( $block_content, $block ) {
 	if ( true === $aria_hidden ) {
 		$proc = new \WP_HTML_Tag_Processor( $block_content );
 
-		if ( $proc->next_tag( 'figure' ) ) {
+		if ( $proc->next_tag( [ 'tag_name' => 'figure' ] ) ) {
 			$proc->set_attribute( 'aria-hidden', 'true' );
 		}
 
-		if ( $proc->next_tag( 'a' ) ) {
+		if ( $proc->next_tag( [ 'tag_name' => 'a' ] ) ) {
 			$proc->set_attribute( 'aria-hidden', 'true' );
 			$proc->set_attribute( 'tabIndex', '-1' );
 		}
@@ -90,7 +90,7 @@ function render_core_post_featured_image( $block_content, $block ) {
 		 * Since the image is hidden, it can no longer be considered content,
 		 * so it only needs an empty 'alt' attribute.
 		 */
-		if ( $proc->next_tag( 'img' ) ) {
+		if ( $proc->next_tag( [ 'tag_name' => 'img' ] ) ) {
 			$proc->set_attribute( 'alt', '' );
 		}
 
