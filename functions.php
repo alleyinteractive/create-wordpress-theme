@@ -18,3 +18,6 @@ require_once CREATE_WORDPRESS_THEME_PATH . '/inc/theme.php';
 
 // Site editor customizations.
 require_once CREATE_WORDPRESS_THEME_PATH . '/inc/site-editor.php';
+
+// Customizer setup.
+require_once CREATE_WORDPRESS_THEME_PATH . '/inc/customizer.php';
