@@ -1,0 +1,16 @@
+{
+  "name": "create-wordpress-theme",
+  "license": "GPL-2.0-or-later",
+  "engines": {
+    "node": "22",
+    "npm": "10"
+  },
+  "scripts": {
+    "build": "alley-build build",
+    "start": "alley-build start",
+    "start:hot": "alley-build start --hot"
+  },
+  "devDependencies": {
+    "@alleyinteractive/build-tool": "^0.1.6"
+  }
+}
