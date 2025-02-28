@@ -8,9 +8,12 @@
   "scripts": {
     "build": "alley-build build",
     "start": "alley-build start",
-    "start:hot": "alley-build start --hot"
+    "start:hot": "alley-build start --hot",
+    "stylelint": "stylelint \"**/*.{css,scss}\" --allow-empty-input",
+    "stylelint:fix": "stylelint --fix \"**/*.{css,scss}\""
   },
   "devDependencies": {
-    "@alleyinteractive/build-tool": "^0.1.6"
+    "@alleyinteractive/build-tool": "^0.1.6",
+    "@alleyinteractive/stylelint-config": "^0.0.2"
   }
 }
