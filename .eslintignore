@@ -1,3 +1,2 @@
-# Build files
 build
-node_modules
+vendor
