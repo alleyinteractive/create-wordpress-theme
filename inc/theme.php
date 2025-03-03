@@ -32,7 +32,7 @@ function action__after_setup_theme(): void {
  * @return void
  */
 function action__admin_menu(): void {
-	if ( empty( $_SERVER['REQUEST_URI'] ) ) {
+	if ( empty( $_SERVER['REQUEST_URI'] ) || ! is_string( $_SERVER['REQUEST_URI'] ) ) {
 		return;
 	}
 

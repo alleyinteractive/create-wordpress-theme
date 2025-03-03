@@ -94,10 +94,9 @@ function get_asset_version( string $dir_entry_name ): string {
 function load_scripts(): void {
 	$files = glob( CREATE_WORDPRESS_THEME_DIR . '/build/**/index.php' );
 
-    
 	if ( ! empty( $files ) ) {
-        foreach ( $files as $path ) {
-            if ( validate_path( $path ) ) {
+		foreach ( $files as $path ) {
+			if ( validate_path( $path ) ) {
 				require_once $path;  // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.IncludingFile, WordPressVIPMinimum.Files.IncludingFile.UsingVariable
 			}
 		}
