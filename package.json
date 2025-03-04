@@ -12,6 +12,8 @@
     "eslint:fix": "eslint --ext .ts,.tsx,.js,.jsx --fix .",
     "jest": "jest --passWithNoTests",
     "jest:watch": "jest --watch",
+    "lint": "npm run check-types && npm run eslint && npm run stylelint",
+    "lint:fix": "npm run eslint:fix && npm run stylelint:fix",
     "packages-update": "alley-build packages-update --dist-tag=wp-6.7",
     "postinstall": "rm -rf node_modules/.cache/babel-loader && rm -rf node_modules/.cache/webpack",
     "start": "alley-build start",
