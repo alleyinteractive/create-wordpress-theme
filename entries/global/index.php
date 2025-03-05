@@ -49,17 +49,11 @@ function create_wordpress_theme_register_global_scripts(): void {
 add_action( 'init', 'create_wordpress_theme_register_global_scripts' );
 
 /**
- * Enqueue scripts for the global entry point.
+ * Enqueue scripts and styles for the global entry point in the frontend and
+ * editor.
  */
-function create_wordpress_theme_enqueue_global_scripts(): void {
+function create_wordpress_theme_enqueue_global_assets(): void {
 	wp_enqueue_script( 'create-wordpress-theme-global-js' );
-}
-add_action( 'wp_enqueue_scripts', 'create_wordpress_theme_enqueue_global_scripts' );
-
-/**
- * Enqueue styles for the global entry point.
- */
-function create_wordpress_theme_enqueue_global_styles(): void {
 	wp_enqueue_style( 'create-wordpress-theme-global-css' );
 }
-add_action( 'wp_enqueue_scripts', 'create_wordpress_theme_enqueue_global_styles' );
+add_action( 'enqueue_block_assets', 'create_wordpress_theme_enqueue_global_assets' );
