@@ -16,12 +16,12 @@
   ],
   "require": {
     "php": "^8.2",
-    "alleyinteractive/composer-wordpress-autoloader": "^1.0",
-    "alleyinteractive/wp-type-extensions": "^2.1"
+    "alleyinteractive/composer-wordpress-autoloader": "^1.1",
+    "alleyinteractive/wp-type-extensions": "^3.0"
   },
   "require-dev": {
-    "alleyinteractive/alley-coding-standards": "^2.0",
-    "mantle-framework/testkit": "^1.4",
+    "alleyinteractive/alley-coding-standards": "^2.1",
+    "mantle-framework/testkit": "^1.5",
     "szepeviktor/phpstan-wordpress": "^2.0"
   },
   "config": {
