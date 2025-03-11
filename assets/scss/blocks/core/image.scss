@@ -1,0 +1,33 @@
+/**
+ * Style extensions for the core/image block.
+ */
+
+// Constrain floated images in full-width templates to content width.
+.is-layout-constrained > .wp-block-image {
+  &.alignleft {
+    margin-inline-start: max(0px, (100% - var(--wp--style--global--content-size)) / 2);
+  }
+
+  &.alignright {
+    margin-inline-end: max(0px, (100% - var(--wp--style--global--content-size)) / 2);
+  }
+}
+
+.wp-block-image.alignleft,
+.wp-block-image.alignright {
+  // Add spacing below floated images.
+  &:not(:has(figcaption)) {
+    margin-block-end: 1em;
+  }
+
+  // Do not float images on small screens.
+  @media (max-width: 479px) {
+    float: none;
+    margin-inline: unset;
+  }
+}
+
+// Style captions on full width images.
+.wp-block-image.alignfull figcaption {
+  padding-inline: var(--wp--custom--spacing--site-edge);
+}

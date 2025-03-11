@@ -52,6 +52,7 @@
       "@phpcbf"
     ],
     "phpunit": "phpunit",
+    "release": "npx @alleyinteractive/create-release@latest",
     "test": [
       "@phpcs",
       "@phpstan",
