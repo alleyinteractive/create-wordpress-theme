@@ -1,11 +1,16 @@
 {
   "$schema": "https://schemas.wp.org/trunk/theme.json",
-  "version": 2,
+  "version": 3,
   "settings": {
+    "useRootPaddingAwareAlignments": true,
+    "appearanceTools": false,
     "color": {
       "custom": false,
       "customDuotone": false,
       "customGradient": false,
+      "defaultDuotone": false,
+      "defaultGradients": false,
+      "defaultPalette": false,
       "duotone": [],
       "gradients": [],
       "palette" : [
@@ -24,34 +29,81 @@
           "color": "#ffffff",
           "name": "White"
         }
-      ],
-      "text": false,
-      "background": false,
-      "defaultGradients": false,
-      "defaultPalette": false
+      ]
     },
     "custom": {
       "spacing": {
-        "blockGap": "1.5rem",
+        "blockGap": "var:preset|spacing|60, 2.25rem",
         "siteEdge": "clamp(1rem, 5vw, 2rem)"
       }
     },
     "layout": {
       "contentSize": "48rem",
-      "wideSize": "80rem"
+      "wideSize": "80rem",
+      "allowCustomContentAndWideSize": false
+    },
+    "shadow": {
+      "defaultPresets": false,
+      "presets": []
     },
     "spacing": {
-      "blockGap": false
+      "blockGap": true,
+      "margin": true,
+      "padding": true,
+      "customSpacingSize": false
     },
     "typography": {
+      "defaultFontSizes": false,
       "customFontSize": false,
       "dropCap": false,
       "fontStyle": false,
       "fontWeight": false,
       "letterSpacing": false,
+      "lineHeight": false,
       "textDecoration": false,
       "textTransform": false,
-      "fontSizes": [],
+      "fontSizes": [
+        {
+          "slug": "xs",
+          "size": "0.75rem",
+          "name": "Extra Small"
+        },
+        {
+          "slug": "sm",
+          "size": "0.875rem",
+          "name": "Small"
+        },
+        {
+          "slug": "md",
+          "size": "1rem",
+          "name": "Medium"
+        },
+        {
+          "slug": "lg",
+          "size": "1.25rem",
+          "name": "Large"
+        },
+        {
+          "slug": "xl",
+          "size": "1.5rem",
+          "name": "Extra Large"
+        },
+        {
+          "slug": "2xl",
+          "size": "2rem",
+          "name": "2x Large"
+        },
+        {
+          "slug": "3xl",
+          "size": "2.5rem",
+          "name": "3x Large"
+        },
+        {
+          "slug": "4xl",
+          "size": "3rem",
+          "name": "4x Large"
+        }
+      ],
       "fontFamilies": [
         {
           "fontFamily": "-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif",
@@ -59,54 +111,42 @@
           "name": "System Sans-serif"
         }
       ]
-    },
-    "useRootPaddingAwareAlignments": true
+    }
   },
   "styles": {
     "color": {
-      "text": "var(--wp--preset--color--black)"
+      "text": "var:preset|color|black"
     },
     "elements": {
+      "heading": {
+        "typography": {
+          "fontWeight": "700",
+          "lineHeight": "1.2"
+        }
+      },
       "link": {
         "color": {
-          "text": "var(--wp--preset--color--primary)"
+          "text": "var:preset|color|primary"
         },
         "typography": {
           "textDecoration": "underline"
-        },
-        ":hover": {
-          "typography": {
-            "textDecoration": "none"
-          }
         }
       }
     },
     "spacing": {
-      "blockGap": "var(--wp--custom--spacing--block-gap, 1.5rem)",
+      "blockGap": "var:custom|spacing|block-gap, 2.25rem",
       "padding": {
         "top": "0",
-        "right": "var(--wp--custom--spacing--site-edge, 5vw)",
+        "right": "var:custom|spacing|site-edge, 5vw",
         "bottom": "0",
-        "left": "var(--wp--custom--spacing--site-edge, 5vw)"
+        "left": "var:custom|spacing|site-edge, 5vw"
       }
     },
     "typography": {
-      "fontFamily": "var(--wp--preset--font-family--system-sans-serif)",
-      "fontSize": "1rem",
+      "fontFamily": "var:preset|font-family|system-sans-serif",
+      "fontSize": "var:preset|font-size|md",
       "fontWeight": "400",
       "lineHeight": "1.5"
-    },
-    "blocks": {
-      "core/post-template": {
-        "spacing": {
-          "blockGap": "calc(var(--wp--custom--spacing--block-gap, 1.5rem) * 2)"
-        }
-      },
-      "core/query-pagination": {
-        "spacing": {
-          "blockGap": "0"
-        }
-      }
     }
   },
   "customTemplates": [],
