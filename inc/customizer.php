@@ -7,7 +7,6 @@
 
 namespace Create_WordPress_Theme\Customizer;
 
-add_action( 'customize_register', '__return_true' );
 add_action( 'after_setup_theme', __NAMESPACE__ . '\action__custom_logo_support' );
 
 /*
