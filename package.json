@@ -1,0 +1,38 @@
+{
+  "name": "create-wordpress-theme",
+  "license": "GPL-2.0-or-later",
+  "engines": {
+    "node": "22",
+    "npm": "10"
+  },
+  "scripts": {
+    "build": "alley-build build",
+    "check-types": "tsc --noEmit",
+    "eslint": "eslint --ext .ts,.tsx,.js,.jsx .",
+    "eslint:fix": "eslint --ext .ts,.tsx,.js,.jsx --fix .",
+    "jest": "jest --passWithNoTests",
+    "jest:watch": "jest --watch",
+    "lint": "npm run check-types && npm run eslint && npm run stylelint",
+    "lint:fix": "npm run eslint:fix && npm run stylelint:fix",
+    "packages-update": "alley-build packages-update --dist-tag=wp-6.7",
+    "postinstall": "rm -rf node_modules/.cache/babel-loader && rm -rf node_modules/.cache/webpack",
+    "release": "npx @alleyinteractive/create-release@latest",
+    "start": "alley-build start",
+    "start:hot": "alley-build start --hot",
+    "stylelint": "stylelint \"**/*.{css,scss}\" --allow-empty-input",
+    "stylelint:fix": "stylelint --fix \"**/*.{css,scss}\"",
+    "test": "npm run check-types && npm run eslint && npm run stylelint && npm run jest"
+  },
+  "devDependencies": {
+    "@alleyinteractive/build-tool": "^0.1.6",
+    "@alleyinteractive/eslint-config": "^0.1.6",
+    "@alleyinteractive/stylelint-config": "^0.0.2",
+    "@alleyinteractive/tsconfig": "^0.2.0",
+    "@babel/preset-env": "^7.26.9",
+    "@wordpress/babel-preset-default": "^8.8.2",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.6",
+    "typescript": "^5.8.2"
+  }
+}

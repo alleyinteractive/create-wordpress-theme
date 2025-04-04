@@ -7,95 +7,88 @@
 
 namespace Create_WordPress_Theme\Blocks;
 
-add_filter( 'render_block_core/template-part', __NAMESPACE__ . '\remove_core_template_part_wrapper', 10, 2 );
-add_filter( 'render_block_core/post-featured-image', __NAMESPACE__ . '\render_core_post_featured_image', 10, 2 );
+use function Create_WordPress_Theme\Assets\get_entry_dir_path;
+use function Create_WordPress_Theme\Assets\get_asset_dependency_array;
+use function Create_WordPress_Theme\Assets\get_asset_version;
+
+add_action( 'after_setup_theme', __NAMESPACE__ . '\enqueue_block_styles' );
 
 /**
- * Filters the content of a 'core/template-part' block.
+ * Enqueue stylesheets for blocks. Each stylesheet will be enqueued on-render.
  *
- * @phpstan-param array{attrs: array<string, mixed>} $block
- *
- * @param string $block_content The block content.
- * @param array  $block         The full block, including name and attributes.
- * @return string
+ * @see https://developer.wordpress.org/reference/functions/wp_enqueue_block_style/
+ * @return void
  */
-function remove_core_template_part_wrapper( $block_content, $block ) {
-	$skip_wrapper = $block['attrs']['skipWrapper'] ?? false;
+function enqueue_block_styles() {
+	$folder_path = get_entry_dir_path( 'block-styles', true );
 
-	/*
-	 * Allow passing "skipWrapper": true with template part block to remove the
-	 * the wrapper automatically added by core. This is useful to avoid extra
-	 * wrappers, as template part blocks do not currently support an `ID`
-	 * attribute. This also allows the block to more closely mimic the
-	 * `get_template_part()` function.
-	 */
-	if ( true === $skip_wrapper ) {
-		$proc = new \WP_HTML_Tag_Processor( $block_content );
+	if ( ! $folder_path ) {
+		return;
+	}
 
-		if ( true === $proc->next_tag() ) {
-			$block_content = trim( $block_content );
+	$directories = scandir( $folder_path );
 
-			// Remove opening tag.
-			$block_content = substr(
-				$block_content,
-				strpos( $block_content, '>' ) + 1
-			);
+	// Return if no directories.
+	if ( ! $directories ) {
+		return;
+	}
 
-			// Remove closing tag.
-			$block_content = substr(
-				$block_content,
-				0,
-				strlen( $block_content ) - strlen( "</{$proc->get_tag()}>" ),
-			);
+	$named_directories = array_filter(
+		$directories,
+		function ( $item ) use ( $folder_path ) {
+			return is_dir( $folder_path . '/' . $item ) && ! in_array( $item, [ '.', '..' ], true );
+		}
+	);
 
-			$block_content = trim( $block_content );
+	$block_entries = [];
+
+	// Loop over each directory.
+	foreach ( $named_directories as $dir ) {
+		$folder          = $folder_path . $dir;
+		$folder_contents = scandir( $folder );
+
+		// Return if no sub-folders.
+		if ( ! $folder_contents ) {
+			return;
+		}
+
+		$css_files = array_filter(
+			$folder_contents,
+			function ( $item ) {
+				return pathinfo( $item, PATHINFO_EXTENSION ) === 'css';
+			}
+		);
+
+		// Create entry details.
+		foreach ( $css_files as $css_file ) {
+			$block_name      = preg_replace( '/\.css$/', '', $css_file );
+			$block_entries[] = [
+				'block_name'      => $block_name,
+				'block_namespace' => $dir . '/' . $block_name,
+				'file_name'       => $css_file,
+				'file_path'       => $folder . '/',
+				'handle'          => get_template() . '-' . $dir . '-' . $block_name,
+			];
 		}
 	}
 
-	return $block_content;
-}
-
-/**
- * Filters the content of the 'core/post-featured-image' block.
- *
- * @phpstan-param array{attrs: array<string, mixed>} $block
- *
- * @param string $block_content The block content.
- * @param array  $block         The full block, including name and attributes.
- * @return string
- */
-function render_core_post_featured_image( $block_content, $block ) {
-	$aria_hidden = $block['attrs']['ariaHidden'] ?? false;
-
-	/*
-	 * Allow passing "ariaHidden": true with post featured image block to remove
-	 * the tab stop and hide the image from screen readers.
-	 *
-	 * This is useful when linked within archive listings or card components,
-	 * since the post title serves as the post link.
-	 */
-	if ( true === $aria_hidden ) {
-		$proc = new \WP_HTML_Tag_Processor( $block_content );
-
-		if ( $proc->next_tag( [ 'tag_name' => 'figure' ] ) ) {
-			$proc->set_attribute( 'aria-hidden', 'true' );
-		}
-
-		if ( $proc->next_tag( [ 'tag_name' => 'a' ] ) ) {
-			$proc->set_attribute( 'aria-hidden', 'true' );
-			$proc->set_attribute( 'tabIndex', '-1' );
-		}
-
-		/*
-		 * Since the image is hidden, it can no longer be considered content,
-		 * so it only needs an empty 'alt' attribute.
-		 */
-		if ( $proc->next_tag( [ 'tag_name' => 'img' ] ) ) {
-			$proc->set_attribute( 'alt', '' );
-		}
-
-		return $proc->get_updated_html();
+	// Return if there are no block entries.
+	if ( empty( $block_entries ) ) {
+		return;
 	}
 
-	return $block_content;
+	foreach ( $block_entries as $block ) {
+		wp_enqueue_block_style(
+			$block['block_namespace'],
+			[
+				'handle' => $block['handle'] . '-styles', // Ex: `create-wordpress-theme-core-paragraph-styles`.
+				'src'    => get_template_directory_uri() . '/build/block-styles/' . $block['block_namespace'] . '.css',
+				'deps'   => get_asset_dependency_array( $block['block_namespace'] ),
+				'ver'    => get_asset_version( $block['block_namespace'] ),
+
+				// Adding "path" allows inlining of block styles on the frontend when possible.
+				'path'   => $block['file_path'] . '/' . $block['file_name'],
+			]
+		);
+	}
 }
