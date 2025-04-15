@@ -12,6 +12,6 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\action__custom_logo_support' 
 /**
  * Add custom logo support to the customizer.
  */
-function action__custom_logo_support() {
+function action__custom_logo_support(): void {
 	add_theme_support( 'custom-logo' );
 }
