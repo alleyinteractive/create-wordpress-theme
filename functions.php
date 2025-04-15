@@ -22,5 +22,8 @@ require_once CREATE_WORDPRESS_THEME_DIR . '/inc/theme.php';
 // Site editor customizations.
 require_once CREATE_WORDPRESS_THEME_DIR . '/inc/site-editor.php';
 
+// Customizer setup.
+require_once CREATE_WORDPRESS_THEME_DIR . '/inc/customizer.php';
+
 // Load asset scripts.
 Assets\load_scripts();
