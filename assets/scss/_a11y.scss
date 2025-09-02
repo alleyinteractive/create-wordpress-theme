@@ -1,0 +1,42 @@
+@use '@/assets/scss/layout';
+
+/**
+ * Visually hide an element and leave it only for screenreaders
+ */
+@mixin screen-reader-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/**
+ * Sets initial styles for the 'Skip to content' link; hidden until it has focus.
+ */
+@mixin skip-link {
+  @include layout.auto-margins;
+  background-color: #fff;
+  color: inherit;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: rem(10);
+  position: absolute;
+  right: 0;
+  text-align: center;
+  text-decoration: none;
+  top: 0;
+  transform: translateY(-100%);
+  width: max-content;
+  z-index: -1;
+
+  &:focus {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 2147483647; // Theoretical max.
+  }
+}

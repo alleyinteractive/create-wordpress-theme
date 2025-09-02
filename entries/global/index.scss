@@ -19,3 +19,12 @@ global entry styles.
 */
 
 @use '@/assets/scss/normalize' as *;
+@use '@/assets/scss/a11y';
+
+.screen-reader-text {
+  @include a11y.screen-reader-only;
+}
+
+.skip-link {
+  @include a11y.skip-link;
+}
