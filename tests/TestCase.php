@@ -5,7 +5,7 @@
  * @package create-wordpress-theme
  */
 
-namespace Alley\WP\Create_WordPress_Theme\Tests;
+namespace Create_WordPress_Theme\Tests;
 
 use Mantle\Testkit\Test_Case as TestkitTest_Case;
 

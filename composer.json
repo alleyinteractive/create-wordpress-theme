@@ -34,7 +34,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Alley\\WP\\Create_WordPress_Theme\\Tests\\": "tests"
+      "Create_WordPress_Theme\\Tests\\": "tests"
     }
   },
   "minimum-stability": "dev",
