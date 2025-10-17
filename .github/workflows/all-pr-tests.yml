@@ -39,6 +39,7 @@ jobs:
         uses: alleyinteractive/action-test-node@v1
         with:
           cache-dependency-path: ''
+          install-command: npm install
           node-version: '22'
           skip-audit: 'true'
 
