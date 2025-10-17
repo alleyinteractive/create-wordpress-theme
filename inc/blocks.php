@@ -5,11 +5,11 @@
  * @package Create_WordPress_Theme
  */
 
-namespace Create_WordPress_Theme\Blocks;
+namespace Alley\WP\Create_WordPress_Theme\Blocks;
 
-use function Create_WordPress_Theme\Assets\get_entry_dir_path;
-use function Create_WordPress_Theme\Assets\get_asset_dependency_array;
-use function Create_WordPress_Theme\Assets\get_asset_version;
+use function Alley\WP\Create_WordPress_Theme\Assets\get_entry_dir_path;
+use function Alley\WP\Create_WordPress_Theme\Assets\get_asset_dependency_array;
+use function Alley\WP\Create_WordPress_Theme\Assets\get_asset_version;
 
 add_action( 'after_setup_theme', __NAMESPACE__ . '\enqueue_block_styles' );
 

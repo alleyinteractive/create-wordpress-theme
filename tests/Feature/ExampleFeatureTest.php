@@ -5,9 +5,9 @@
  * @package create-wordpress-theme
  */
 
-namespace Create_WordPress_Theme\Tests\Feature;
+namespace Alley\WP\Create_WordPress_Theme\Tests\Feature;
 
-use Create_WordPress_Theme\Tests\TestCase;
+use Alley\WP\Create_WordPress_Theme\Tests\TestCase;
 
 /**
  * A test suite for an example feature.

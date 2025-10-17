@@ -5,7 +5,7 @@
  * @package create-wordpress-theme
  */
 
-namespace Create_WordPress_Theme\Tests\Unit;
+namespace Alley\WP\Create_WordPress_Theme\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 
