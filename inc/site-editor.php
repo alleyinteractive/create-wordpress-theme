@@ -5,7 +5,7 @@
  * @package Create_WordPress_Theme
  */
 
-namespace Create_WordPress_Theme\Site_Editor;
+namespace Alley\WP\Create_WordPress_Theme\Site_Editor;
 
 add_action( 'admin_menu', __NAMESPACE__ . '\action__admin_menu' );
 

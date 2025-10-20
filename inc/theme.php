@@ -5,7 +5,7 @@
  * @package Create_WordPress_Theme
  */
 
-namespace Create_WordPress_Theme;
+namespace Alley\WP\Create_WordPress_Theme\Theme;
 
 add_action( 'after_setup_theme', __NAMESPACE__ . '\action__after_setup_theme' );
 add_action( 'admin_menu', __NAMESPACE__ . '\action__admin_menu' );

@@ -5,7 +5,7 @@
  * @package Create_WordPress_Theme
  */
 
-namespace Create_WordPress_Theme;
+namespace Alley\WP\Create_WordPress_Theme;
 
 define( 'CREATE_WORDPRESS_THEME_DIR', __DIR__ );
 define( 'CREATE_WORDPRESS_THEME_URL', get_template_directory_uri() );

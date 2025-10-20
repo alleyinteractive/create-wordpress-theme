@@ -7,7 +7,7 @@
  * @package create-wordpress-theme
  */
 
-namespace Create_WordPress_Theme\Assets;
+namespace Alley\WP\Create_WordPress_Theme\Assets;
 
 /**
  * Validate file paths to prevent a PHP error if a file doesn't exist.
