@@ -17,7 +17,7 @@ const config = {
 
       return {
         ...acc,
-        [`block-styles/${namespace}/${entryName}`]: entry,
+        [`block-styles/${namespace}/${entryName}/index`]: entry,
       };
     }, {});
 
