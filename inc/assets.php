@@ -51,7 +51,7 @@ function get_entry_dir_path( string $dir_entry_name, bool $dir = false ): string
 function get_entry_asset_map( string $dir_entry_name ): array {
 	$base_path = get_entry_dir_path( $dir_entry_name, true );
 
-	if ( ! empty( $base_path ) ) {
+	if ( $base_path !== '' && $base_path !== '0' ) {
 		$asset_file_path = trailingslashit( $base_path ) . 'index.asset.php';
 
 		if ( validate_path( $asset_file_path ) ) {
@@ -94,7 +94,7 @@ function get_asset_version( string $dir_entry_name ): string {
 function load_scripts(): void {
 	$files = glob( CREATE_WORDPRESS_THEME_DIR . '/build/**/index.php' );
 
-	if ( ! empty( $files ) ) {
+	if ( is_array( $files ) ) {
 		foreach ( $files as $path ) {
 			if ( validate_path( $path ) ) {
 				require_once $path;  // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.IncludingFile, WordPressVIPMinimum.Files.IncludingFile.UsingVariable
