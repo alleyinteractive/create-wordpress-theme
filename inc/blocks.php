@@ -78,7 +78,7 @@ function enqueue_block_styles(): void {
 				'ver'    => get_asset_version( $block['block_namespace'] ),
 
 				// Adding "path" allows inlining of block styles on the frontend when possible.
-				'path'   => $block['file_path'] . '/' . $block['file_name'],
+				'path'   => $block['file_path'] . $block['file_name'],
 			]
 		);
 	}
