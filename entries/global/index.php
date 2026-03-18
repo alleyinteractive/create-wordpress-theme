@@ -32,7 +32,7 @@ function create_wordpress_theme_register_global_scripts(): void {
 	wp_register_script(
 		'create-wordpress-theme-global-js',
 		get_template_directory_uri() . '/build/global/index.js',
-		array_filter( $asset_file['dependencies'], 'is_string' ),
+		array_filter( $asset_file['dependencies'], is_string( ... ) ),
 		$asset_file['version'],
 		true
 	);
