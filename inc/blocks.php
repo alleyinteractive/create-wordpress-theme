@@ -17,12 +17,11 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\enqueue_block_styles' );
  * Enqueue stylesheets for blocks. Each stylesheet will be enqueued on-render.
  *
  * @see https://developer.wordpress.org/reference/functions/wp_enqueue_block_style/
- * @return void
  */
-function enqueue_block_styles() {
+function enqueue_block_styles(): void {
 	$folder_path = get_entry_dir_path( 'block-styles', true );
 
-	if ( ! $folder_path ) {
+	if ( $folder_path === '' || $folder_path === '0' ) {
 		return;
 	}
 
@@ -35,9 +34,7 @@ function enqueue_block_styles() {
 
 	$named_directories = array_filter(
 		$directories,
-		function ( $item ) use ( $folder_path ) {
-			return is_dir( $folder_path . '/' . $item ) && ! in_array( $item, [ '.', '..' ], true );
-		}
+		fn ( string $item ): bool => is_dir( $folder_path . '/' . $item ) && ! in_array( $item, [ '.', '..' ], true )
 	);
 
 	$block_entries = [];
@@ -54,9 +51,7 @@ function enqueue_block_styles() {
 
 		$block_directories = array_filter(
 			$folder_contents,
-			function ( $item ) use ( $folder ) {
-				return is_dir( $folder . '/' . $item ) && ! in_array( $item, [ '.', '..' ], true );
-			}
+			fn ( string $item ): bool => is_dir( $folder . '/' . $item ) && ! in_array( $item, [ '.', '..' ], true )
 		);
 
 		// Create entry details for each block directory.
@@ -75,11 +70,6 @@ function enqueue_block_styles() {
 				];
 			}
 		}
-	}
-
-	// Return if there are no block entries.
-	if ( empty( $block_entries ) ) {
-		return;
 	}
 
 	foreach ( $block_entries as $block ) {
