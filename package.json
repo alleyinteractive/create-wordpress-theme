@@ -2,8 +2,8 @@
   "name": "create-wordpress-theme",
   "license": "GPL-2.0-or-later",
   "engines": {
-    "node": "22",
-    "npm": "10"
+    "node": "24",
+    "npm": "11"
   },
   "scripts": {
     "build": "alley-build build",
