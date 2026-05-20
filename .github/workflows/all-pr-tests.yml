@@ -40,7 +40,7 @@ jobs:
         with:
           cache-dependency-path: 'package.json'
           install-command: 'npm install'
-          node-version: '22'
+          node-version: '24'
           skip-audit: 'true'
 
       - name: Run PHP Tests

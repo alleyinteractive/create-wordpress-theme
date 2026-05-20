@@ -2,7 +2,7 @@
   "name": "create-wordpress-theme",
   "license": "GPL-2.0-or-later",
   "engines": {
-    "node": "22",
+    "node": "24",
     "npm": "10"
   },
   "scripts": {
